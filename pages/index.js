@@ -7,6 +7,7 @@ const api = {
   key: process.env.NEXT_PUBLIC_OPENWEATHER_KEY,
   base: "https://api.openweathermap.org/data/2.5/",
 };
+console.log(api);
 
 export default function Home() {
   const [search, setSearch] = useState("");
