@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <>
       <div className="weather-app">
-        <h1>Weather APP</h1>
+        {/* <h1>Weather APP</h1> */}
         {/* Search Box */}
         <div className="search-section">
           <input
