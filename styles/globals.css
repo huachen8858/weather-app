@@ -1,10 +1,133 @@
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body {
+  background-color: #77b1e4;
+  background-image: url("/nice-snow.png");
+}
+
+.weather-app {
+  background-color: white;
+  max-width: 80%;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 15px;
+}
+.weather-app h1 {
+  color: #333;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="text"] {
+  /* flex: 1; */
+  padding: 10px 20px;
+  border: 2px solid #3498db;
+  border-radius: 15px;
+  font-size: 1rem;
+}
+
+.search-btn {
+  background-color: #3498db;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  color: white;
+  margin-left: 10px;
+  transition: backgroung-color 0.3s ease;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.search-btn:hover {
+  background-color: #2980b9;
+}
+
+.city-section {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  color: #333;
+}
+
+.city-section .city {
+  font-size: 2rem;
+  opacity: 0.9;
+}
+
+.temperature-info {
+  margin: 20px 0 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  color: #333;
+}
+
+.temperature-info .temp {
+  font-size: 5rem;
+  color: #333;
+}
+
+.additional-info {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5rem;
+  opacity: 0.9;
+  color: #333;
+}
+
+.wind-info,
+.humidity-info,
+.feels-like-info {
+  background-color: #ecf0f1;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.wind-speed,
+.humidity,
+.feels-like {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.wind-info div,
+.humidity-info div,
+.feels-like-info div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.wind-label,
+.humidity-label,
+.feels-like-label {
+  font-size: 1.2rem;
 }

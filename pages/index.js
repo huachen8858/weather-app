@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { FaWind, FaTemperatureEmpty } from "react-icons/fa6";
+import { MdOutlineWaterDrop } from "react-icons/md";
 
 const api = {
   key: process.env.NEXT_PUBLIC_OPENWEATHER_KEY,
@@ -28,50 +30,76 @@ export default function Home() {
 
   return (
     <>
-      <header>
-        <h1>weather APP</h1>
+      <div className="weather-app">
+        <h1>Weather APP</h1>
         {/* Search Box */}
-        <div>
+        <div className="search-section">
           <input
             type="text"
             placeholder="Search city..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button onClick={handleSearch}>Search</button>
+          <button className="search-btn" onClick={handleSearch}>
+            Search
+          </button>
         </div>
         {typeof weather.main !== "undefined" ? (
           <>
-            {/* Location */}
-            <p>{weather.name ? weather.name : ""}</p>
-            {/* Temperature */}
-            <p>{weather.main.temp ? weather.main.temp : 0}°C</p>
-            {/* Condition */}
-            <p>
-              {weather.weather[0].main ? weather.weather[0].main : ""}(
-              {weather.weather[0].description
-                ? weather.weather[0].description
-                : ""}
-              )
-            </p>
-            <p>
-              {weather.main.feels_like
-                ? "Feels Like: " + weather.main.feels_like + " °C"
-                : ""}
-            </p>
-            <p>
-              {weather.main.humidity
-                ? "Humidity: " + weather.main.humidity + " %"
-                : ""}
-            </p>
-            <p>
-              {weather.wind.speed ? "Wind: " + weather.wind.speed + " km/h" : ""}
-            </p>
+            <div className="city-section">
+              <h2 className="city">{weather.name ? weather.name : ""}</h2>
+            </div>
+            <div className="temperature-info">
+              <div className="temp">
+                {weather.main.temp ? weather.main.temp : 0}°C
+              </div>
+              <div className="description">
+                <div className="description-text">
+                  {weather.weather[0].main ? weather.weather[0].main : ""} (
+                  {weather.weather[0].description
+                    ? weather.weather[0].description
+                    : ""}
+                  )
+                </div>
+              </div>
+            </div>
+
+            <div className="additional-info">
+              <div className="wind-info">
+                <div>
+                  <FaWind size={25} />
+                  <div className="wind-label">Wind</div>
+                  <div className="wind-speed">
+                    {weather.wind.speed ? weather.wind.speed + " km/h" : ""}
+                  </div>
+                </div>
+              </div>
+              <div className="humidity-info">
+                <div>
+                  <MdOutlineWaterDrop size={30} />
+                  <p className="humidity-label">Humidity</p>
+                  <div className="humidity">
+                    {weather.main.humidity ? weather.main.humidity + " °C" : ""}
+                  </div>
+                </div>
+              </div>
+              <div className="feels-like-info">
+                <div>
+                  <FaTemperatureEmpty size={25} />
+                  <p className="feels-like-label">Feels Like</p>
+                  <div className="feels-like">
+                    {weather.main.feels_like
+                      ? weather.main.feels_like + " °C"
+                      : ""}
+                  </div>
+                </div>
+              </div>
+            </div>
           </>
         ) : (
           ""
         )}
-      </header>
+      </div>
     </>
   );
 }
