@@ -16,8 +16,7 @@ export default function Home() {
         `${api.base}weather?q=${search}&units=metric&APPID=${api.key}`
       );
       const data = await response.json();
-      setSearch("")
-
+      setSearch("");
       if (data) {
         // console.log(data);
         setWeather(data);
@@ -26,10 +25,6 @@ export default function Home() {
       console.log(ex);
     }
   };
-
-  // useEffect(() => {
-  //   handleSearch();
-  // });
 
   return (
     <>
@@ -52,13 +47,25 @@ export default function Home() {
             {/* Temperature */}
             <p>{weather.main.temp ? weather.main.temp : 0}°C</p>
             {/* Condition */}
-            <p>{weather.weather[0].main ? weather.weather[0].main : ""}</p>
             <p>
-              (
+              {weather.weather[0].main ? weather.weather[0].main : ""}(
               {weather.weather[0].description
                 ? weather.weather[0].description
                 : ""}
               )
+            </p>
+            <p>
+              {weather.main.feels_like
+                ? "Feels Like: " + weather.main.feels_like + " °C"
+                : ""}
+            </p>
+            <p>
+              {weather.main.humidity
+                ? "Humidity: " + weather.main.humidity + " %"
+                : ""}
+            </p>
+            <p>
+              {weather.wind.speed ? "Wind: " + weather.wind.speed + " km/h" : ""}
             </p>
           </>
         ) : (
