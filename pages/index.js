@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaWind, FaTemperatureEmpty } from "react-icons/fa6";
 import { MdOutlineWaterDrop } from "react-icons/md";
 
@@ -10,7 +10,7 @@ const api = {
 console.log(api);
 
 export default function Home() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Taiwan");
   const [weather, setWeather] = useState({});
 
   const handleSearch = async () => {
@@ -28,6 +28,10 @@ export default function Home() {
       console.log(ex);
     }
   };
+
+  useEffect(()=>{
+    handleSearch()
+  }, [])
 
   return (
     <>
