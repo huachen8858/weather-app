@@ -1,4 +1,4 @@
-Weather APP (React + OpenWeather)
+Weather APP (React(Next.js ver.14) + OpenWeather API)
 
 
 ----
